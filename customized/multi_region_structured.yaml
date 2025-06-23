@@ -1,0 +1,12 @@
+# Multi-region structured loss mask configuration for SFT
+defaults:
+  - sft_trainer
+  - _self_
+
+data:
+  # Multi-region specific configuration
+  multi_region_config:
+    format: "structured"          # position_based, tag_based, structured
+    max_regions: 200              # Maximum number of segments per sequence
+    weight_normalize: true        # Normalize weights for balanced learning
+    default_weight: 0.0           # Default weight for non-learning segments
